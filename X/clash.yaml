@@ -170,7 +170,7 @@ payload:
 #天天主页
  - DOMAIN, op.ysdqjs.cn
 #在线之家主页--播放地址是ctyunxs.cn,在天翼里有
- - DOMAIN-SUFFIX, zxzja.com
+DOMAIN-SUFFIX, zxzja.com
 #素白白主页--播放地址是dc.xhscdn.com,在厂长里有
  - DOMAIN, www.subaibaiys.com
 #CMS源
@@ -181,7 +181,7 @@ payload:
 #非凡主页和播放
  - DOMAIN-KEYWORD, ffzy
 #墨斗主页
- - DOMAIN, www.mdzyapi.com
+DOMAIN, www.mdzyapi.com
 #黑木耳主页
  - DOMAIN-SUFFIX, heimuer.tv
  - DOMAIN-SUFFIX, heimuer.xyz
