@@ -1,3 +1,4 @@
+payload:
 #已标注了大部分可直连的地址,遇到无法直连的情况自行调整
  - DOMAIN-SUFFIX, xptvhelper.link
 #XPTV主站-部分地区可以直连自行尝试
@@ -60,7 +61,7 @@
  - DOMAIN, lemonlive.deno.dev
 #VOD源
 #低端主页与播放
- - DOMAIN-SUFFIX, ddys.pro
+ - DOMAIN-SUFFIX,ddys.pro
 #AGE主页
  - DOMAIN-SUFFIX, agedm.org
 #ギリギリ主页
