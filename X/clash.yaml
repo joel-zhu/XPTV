@@ -73,8 +73,12 @@ payload:
  - DOMAIN,api.9cec79d.com
 #播放
  - DOMAIN,wjm.kemfsj.com
-#4k-av播放
- - DOMAIN,www.4k-av.com
+#两个BT
+- DOMAIN—KEYWORD,bttwo.me
+#影视天堂主页
+ - DOMAIN,ysttv.com
+#播放
+ - DOMAIN—KEYWORD,ysttv.com/player
 #囧动漫主页
  - IP-CIDR,43.142.232.217/32, , no-resolve
 #播放
@@ -132,6 +136,8 @@ payload:
 #播放
  - DOMAIN-SUFFIX,thehanju.com
  - DOMAIN-SUFFIX,vvddoo.com
+#哔滴主页
+ - DOMAIN-KEYWORD,v.xlys.ltd.ua
 #星芽主页
  - DOMAIN,qiniu.rongjuwh.cn
  - DOMAIN,app.whjzjx.cn
@@ -157,7 +163,7 @@ payload:
  - IP-CIDR,163.123.192.17/32, ,no-resolve
  - DOMAIN,c.xpgtv.net
 #厂长主页
- - DOMAIN,www.czzyvideo.com
+ - DOMAIN,www.czzymovie.com
 #播放
  - DOMAIN,qimgs.qunarzz.com
  - DOMAIN,lf16-fe.resso.me
@@ -381,6 +387,9 @@ DOMAIN,www.mdzyapi.com
  - DOMAIN,vdownload.hembed.com
 #MISSAV播放
  - DOMAIN,surrit.com
+# JavMove
+ - DOMAIN,javmove.com
+ - DOMAIN,avdbapi.com/api.php/provide/vod
 #SupJav-ST播放
  - DOMAIN,streamtape.com
  - DOMAIN-SUFFIX,tapecontent.net
