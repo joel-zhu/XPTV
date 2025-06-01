@@ -110,6 +110,8 @@ payload:
  - DOMAIN-SUFFIX, bytetos.com
 #烧火影视主页
  - DOMAIN, saohuo.tv
+#零度影视主页
+ - DOMAIN,zero.mitotv.com
 #播放
  - DOMAIN, hhjx.hhplayer.comundefined
  - DOMAIN-SUFFIX, video.iqiyi.com
