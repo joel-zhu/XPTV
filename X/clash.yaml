@@ -1,30 +1,19 @@
 payload:
   - DOMAIN-SUFFIX,xptvhelper.link
   - DOMAIN,infuseku.xyz
-
   - DOMAIN,gateway.icloud.com
   - DOMAIN,metrics.icloud.com
-
   - DOMAIN-SUFFIX,doubanio.com
-
   - DOMAIN,image.tmdb.org
-
   - DOMAIN,dandanplay.net
-
   - DOMAIN-SUFFIX,aliyundrive.com
   - DOMAIN-SUFFIX,voicehub.top
-
   - DOMAIN-SUFFIX,quark.cn
-
   - DOMAIN-SUFFIX,189.cn
   - DOMAIN-SUFFIX,ctyunxs.cn
-
   - DOMAIN-SUFFIX,115.com
-
   - DOMAIN-SUFFIX,uc.cn
-
   - DOMAIN-SUFFIX,xiaoya.pro
-
   - DOMAIN,mihdr.top
 
   - DOMAIN-SUFFIX,mogg.top
@@ -68,11 +57,11 @@ payload:
 
   - DOMAIN,wjm.kemfsj.com
 
-  - DOMAIN—KEYWORD,bttwo.me
+  - DOMAIN—KEYWORD,bttwo
 
   - DOMAIN,ysttv.com
 
-  - DOMAIN—KEYWORD,ysttv.com/player
+  - DOMAIN—KEYWORD,ysttv
 
   - IP-CIDR,43.142.232.217/32, , no-resolve
 
@@ -110,32 +99,28 @@ payload:
   - DOMAIN,saohuo.tv
 
   - DOMAIN,zero.mitotv.com
-#播放
- - DOMAIN,hhjx.hhplayer.comundefined
- - DOMAIN-SUFFIX,video.iqiyi.com
- - DOMAIN-SUFFIX,qitu-zuida.com
- - DOMAIN,om.tc.qq.com
- - DOMAIN-SUFFIX,ibytedtos.com
- - DOMAIN-SUFFIX,1ljx.com
- - DOMAIN-SUFFIX,smtcdns.com
- - DOMAIN,cme-video.vod-qcloud.com
- - DOMAIN,hhjx.hhplayer.com
-#NO視頻主页
- - DOMAIN,www.novipnoad.net
-#播放
- - DOMAIN-SUFFIX,novipnoad.net
-#韩剧看看主页
- - DOMAIN,www.hanjukankan.com
- - DOMAIN,glzx.thekutv.com
-#播放
- - DOMAIN-SUFFIX,thehanju.com
- - DOMAIN-SUFFIX,vvddoo.com
-#哔滴主页
- - DOMAIN-KEYWORD,v.xlys.ltd.ua
-#星芽主页
- - DOMAIN,qiniu.rongjuwh.cn
- - DOMAIN,app.whjzjx.cn
- - DOMAIN,u.shytkjgs.com
+
+  - DOMAIN,hhjx.hhplayer.comundefined
+  - DOMAIN-SUFFIX,video.iqiyi.com
+  - DOMAIN-SUFFIX,qitu-zuida.com
+  - DOMAIN,om.tc.qq.com
+  - DOMAIN-SUFFIX,ibytedtos.com
+  - DOMAIN-SUFFIX,1ljx.com
+  - DOMAIN-SUFFIX,smtcdns.com
+  - DOMAIN,cme-video.vod-qcloud.com
+  - DOMAIN,hhjx.hhplayer.com
+
+
+  - DOMAIN,www.hanjukankan.com
+  - DOMAIN,glzx.thekutv.com
+
+  - DOMAIN-SUFFIX,thehanju.com
+  - DOMAIN-SUFFIX,vvddoo.com
+
+  - DOMAIN-KEYWORD,v.xlys.ltd.ua
+  - DOMAIN,qiniu.rongjuwh.cn
+  - DOMAIN,app.whjzjx.cn
+  - DOMAIN,u.shytkjgs.com
 #播放
  - IP-CIDR,218.22.23.189/32, ,no-resolve
  - IP-CIDR,117.68.35.135/32, ,no-resolve
