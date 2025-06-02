@@ -181,12 +181,12 @@ DOMAIN-SUFFIX,zxzja.com
  - DOMAIN,www.subaibaiys.com
 #CMS源
 #360主页
- - DOMAIN,360zy.com
+ - DOMAIN-SUFFIX,360zy.com
 #播放
  - DOMAIN,vod.lyhuicheng.com
 #非凡主页和播放
  - DOMAIN-KEYWORD,ffzy
-#墨斗主页
+
 DOMAIN,www.mdzyapi.com
 #黑木耳主页
  - DOMAIN-SUFFIX,heimuer.tv
