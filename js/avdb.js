@@ -73,7 +73,6 @@ async function getCards(ext) {
     }
 }
 
-// ==================== 修改开始 ====================
 async function getTracks(ext) {
     ext = argsify(ext)
     let tracks = []
@@ -86,27 +85,22 @@ async function getTracks(ext) {
         },
     })
 
-    // 将数据解析一次，方便复用
     const parsedData = argsify(data);
     
-    // 检查数据结构是否有效
     if (parsedData && parsedData.list && parsedData.list.length > 0) {
         const videoInfo = parsedData.list[0];
 
-        // ***修改点***: 
-        // 删除了 .split('?s=')[1]
-        // 直接获取 link_embed 字段的完整值
+        // 这是我们根据 JSON 调整的逻辑（这部分是正确的）
         let vod_play_url = videoInfo.episodes.server_data.Full.link_embed
 
         tracks.push({
             name: videoInfo.episodes.server_name,
             pan: '',
             ext: {
-                url: vod_play_url, // vod_play_url 现在是完整的 URL
+                url: vod_play_url,
             },
         })
     } else {
-        // 如果 API 没有返回预期的 list 数据，可以打个日志
         $print(`[getTracks] Error: No video list found for id ${id}`);
     }
 
@@ -119,7 +113,6 @@ async function getTracks(ext) {
         ],
     })
 }
-// ==================== 修改结束 ====================
 
 async function getPlayinfo(ext) {
     ext = argsify(ext)
@@ -133,7 +126,10 @@ async function search(ext) {
     let cards = []
 
     const text = encodeURIComponent(ext.text)
-  S const page = ext.page || 1
+    // ==================== 修正点 ====================
+    // 移除了本行行首多余的 "S" 字符
+    const page = ext.page || 1
+    // ================================================
     const url = `${appConfig.site}?ac=detail&wd=${text}&pg=${page}`
 
     const { data } = await $fetch.get(url, {
@@ -148,7 +144,7 @@ async function search(ext) {
             vod_name: e.name,
             vod_pic: e.poster_url,
             vod_remarks: e.tag,
-            vod_pubdate: e.created_at,
+    D       vod_pubdate: e.created_at,
             vod_duration: e.time,
             ext: {
                 id: `${e.id}`,
