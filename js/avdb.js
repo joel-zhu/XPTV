@@ -74,32 +74,32 @@ async function getCards(ext) {
 }
 
 async function getTracks(ext) {
-    ext = argsify(ext)
-    let tracks = []
-    let id = ext.id
-    let url = appConfig.site + `?ac=detail&ids=${id}`
+    ext = argsify(ext)
+    let tracks = []
+    let id = ext.id
+    let url = appConfig.site + `?ac=detail&ids=${id}`
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    })
 
     const parsedData = argsify(data);
     
     if (parsedData && parsedData.list && parsedData.list.length > 0) {
         const videoInfo = parsedData.list[0];
 
-        // 这是我们根据 JSON 调整的逻辑（这部分是正确的）
-        let vod_play_url = videoInfo.episodes.server_data.Full.link_embed
+        // 使用固定前缀 + movie_code 生成播放链接
+        let vod_play_url = "https://upload18.com/play/index/" + videoInfo.movie_code
 
-        tracks.push({
-            name: videoInfo.episodes.server_name,
-            pan: '',
-            ext: {
-                url: vod_play_url,
-            },
-        })
+        tracks.push({
+            name: videoInfo.episodes.server_name,
+            pan: '',
+            ext: {
+                url: vod_play_url,
+            },
+        })
     } else {
         $print(`[getTracks] Error: No video list found for id ${id}`);
     }
