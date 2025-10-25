@@ -85,7 +85,7 @@ async function getTracks(ext) {
         },
     })
 
-    let vod_play_url = argsify(data).list[0].episodes.server_data.Full.link_embed.split('?s=')[1]
+    let vod_play_url = argsify(data).list[0].episodes.server_data.Full.link_embed
     tracks.push({
         name: argsify(data).list[0].episodes.server_name,
         pan: '',
