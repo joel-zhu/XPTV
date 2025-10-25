@@ -90,7 +90,7 @@ async function getTracks(ext) {
     if (parsedData && parsedData.list && parsedData.list.length > 0) {
         const videoInfo = parsedData.list[0];
 
-        // 使用固定前缀 + movie_code 生成播放链接
+        // 使用固定前缀 + movie_code（小写）生成播放链接
         let vod_play_url = "https://upload18.com/play/index/" + videoInfo.movie_code.toLowerCase()
 
         tracks.push({
@@ -118,7 +118,20 @@ async function getPlayinfo(ext) {
     ext = argsify(ext)
     let url = ext.url
 
-    return jsonify({ urls: [url], headers: [{ 'User-Agent': UA, Referer: `https://avdbapi.com/` }] })
+    return jsonify({ urls: [url], headers: [{ 
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'none',
+        'Sec-Fetch-User': '?1',
+        Referer: `https://upload18.com/`
+    }] })
 }
 
 async function search(ext) {
