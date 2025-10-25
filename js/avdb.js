@@ -2,75 +2,75 @@ const UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 18_2 like Mac OS X) AppleWebKit/6
 const config = argsify($config_str)
 
 let appConfig = {
-    ver: 1,
-    title: 'avdb',
-    site: 'https://avdbapi.com/api.php/provide/vod',
+    ver: 1,
+    title: 'avdb',
+    site: 'https://avdbapi.com',
 }
 
 async function getConfig() {
-    let config = appConfig
-    config.tabs = await getTabs()
-    return jsonify(appConfig)
+    let config = appConfig
+    config.tabs = await getTabs()
+    return jsonify(appConfig)
 }
 
 async function getTabs() {
-    let tabs = []
-    let url = appConfig.site
+    let tabs = []
+    let url = appConfig.site
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    })
 
-    argsify(data).class.forEach((e) => {
-        tabs.push({
-            id: e.type_id,
-            name: e.type_name,
-            ext: {
-                id: e.type_id,
-            },
-            ui: 1,
-        })
-    })
+    argsify(data).class.forEach((e) => {
+        tabs.push({
+            id: e.type_id,
+            name: e.type_name,
+            ext: {
+                id: e.type_id,
+            },
+            ui: 1,
+        })
+    })
 
-    return tabs
+    return tabs
 }
 
 async function getCards(ext) {
-    ext = argsify(ext)
-    let cards = []
-    let { id, page = 1 } = ext
+    ext = argsify(ext)
+    let cards = []
+    let { id, page = 1 } = ext
 
-    try {
-        const url = appConfig.site + `?t=${id}&ac=detail&pg=${page}`
+    try {
+        const url = appConfig.site + `?t=${id}&ac=detail&pg=${page}`
 
-        const { data } = await $fetch.get(url, {
-            headers: {
-                'User-Agent': UA,
-            },
-        })
+        const { data } = await $fetch.get(url, {
+            headers: {
+                'User-Agent': UA,
+            },
+        })
 
-        argsify(data).list.forEach((e) => {
-            cards.push({
-                vod_id: `${e.id}`,
-                vod_name: e.name,
-                vod_pic: e.poster_url,
-                vod_remarks: e.tag,
-                vod_pubdate: e.created_at,
-                vod_duration: e.time,
-                ext: {
-                    id: `${e.id}`,
-                },
-            })
-        })
+        argsify(data).list.forEach((e) => {
+            cards.push({
+                vod_id: `${e.id}`,
+                vod_name: e.name,
+                vod_pic: e.poster_url,
+                vod_remarks: e.tag,
+                vod_pubdate: e.created_at,
+                vod_duration: e.time,
+                ext: {
+                    id: `${e.id}`,
+                },
+            })
+        })
 
-        return jsonify({
-            list: cards,
-        })
-    } catch (error) {
-        $print(error)
-    }
+        return jsonify({
+            list: cards,
+        })
+    } catch (error) {
+        $print(error)
+    }
 }
 
 async function getTracks(ext) {
@@ -85,87 +85,61 @@ async function getTracks(ext) {
         },
     })
 
-    const parsedData = argsify(data);
-    
-    if (parsedData && parsedData.list && parsedData.list.length > 0) {
-        const videoInfo = parsedData.list[0];
+    let vod_play_url = argsify(data).list[0].episodes.server_data.Full.link_embed.split('?s=')[1]
+    tracks.push({
+        name: argsify(data).list[0].episodes.server_name,
+        pan: '',
+        ext: {
+            url: vod_play_url,
+        },
+    })
 
-        // 使用固定前缀 + movie_code（小写）生成播放链接
-        let vod_play_url = "https://upload18.com/play/index/" + videoInfo.movie_code.toLowerCase()
-
-        tracks.push({
-            name: videoInfo.episodes.server_name,
-            pan: '',
-            ext: {
-                url: vod_play_url,
+    return jsonify({
+        list: [
+            {
+                title: '默认分组',
+                tracks,
             },
-        })
-    } else {
-        $print(`[getTracks] Error: No video list found for id ${id}`);
-    }
-
-    return jsonify({
-        list: [
-            {
-                title: '默认分组',
-                tracks,
-            },
-        ],
-    })
+        ],
+    })
 }
 
 async function getPlayinfo(ext) {
-    ext = argsify(ext)
-    let url = ext.url
+    ext = argsify(ext)
+    let url = ext.url
 
-    return jsonify({ urls: [url], headers: [{ 
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-        'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Cache-Control': 'no-cache',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-        'Sec-Fetch-User': '?1',
-        Referer: `https://upload18.com/`
-    }] })
+    return jsonify({ urls: [url], headers: [{ 'User-Agent': UA, Referer: `https://avdbapi.com/` }] })
 }
 
 async function search(ext) {
-    ext = argsify(ext)
-    let cards = []
+    ext = argsify(ext)
+    let cards = []
 
-    const text = encodeURIComponent(ext.text)
-    // ==================== 修正点 ====================
-    // 移除了本行行首多余的 "S" 字符
-    const page = ext.page || 1
-    // ================================================
-    const url = `${appConfig.site}?ac=detail&wd=${text}&pg=${page}`
+    const text = encodeURIComponent(ext.text)
+    const page = ext.page || 1
+    const url = `${appConfig.site}?ac=detail&wd=${text}&pg=${page}`
 
-    const { data } = await $fetch.get(url, {
-        headers: {
-            'User-Agent': UA,
-        },
-    })
+    const { data } = await $fetch.get(url, {
+        headers: {
+            'User-Agent': UA,
+        },
+    })
 
-    argsify(data).list.forEach((e) => {
-        cards.push({
-            vod_id: `${e.id}`,
-            vod_name: e.name,
-            vod_pic: e.poster_url,
-            vod_remarks: e.tag,
-            vod_pubdate: e.created_at,
-            vod_duration: e.time,
-            ext: {
-                id: `${e.id}`,
-            },
-        })
-    })
+    argsify(data).list.forEach((e) => {
+        cards.push({
+            vod_id: `${e.id}`,
+            vod_name: e.name,
+            vod_pic: e.poster_url,
+            vod_remarks: e.tag,
+            vod_pubdate: e.created_at,
+            vod_duration: e.time,
+            ext: {
+                id: `${e.id}`,
+            },
+        })
+    })
 
-    return jsonify({
-        list: cards,
-    })
+    return jsonify({
+        list: cards,
+    })
 }
