@@ -4,7 +4,7 @@ const config = argsify($config_str)
 let appConfig = {
     ver: 1,
     title: 'avdb',
-    site: 'https://avdbapi.com',
+    site: 'https://avdbapi.com/api.php/provide/vod',
 }
 
 async function getConfig() {
