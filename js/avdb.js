@@ -91,7 +91,7 @@ async function getTracks(ext) {
         const videoInfo = parsedData.list[0];
 
         // 使用固定前缀 + movie_code 生成播放链接
-        let vod_play_url = "https://upload18.com/play/index/" + videoInfo.movie_code
+        let vod_play_url = "https://upload18.com/play/index/" + videoInfo.movie_code.toLowerCase()
 
         tracks.push({
             name: videoInfo.episodes.server_name,
