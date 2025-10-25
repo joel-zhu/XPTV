@@ -4,7 +4,7 @@ const config = argsify($config_str)
 let appConfig = {
     ver: 1,
     title: 'avdb',
-    site: 'https://avdbapi.com',
+    site: 'https://avdbapi.com/api.php/provide/vod',
 }
 
 async function getConfig() {
@@ -144,7 +144,7 @@ async function search(ext) {
             vod_name: e.name,
             vod_pic: e.poster_url,
             vod_remarks: e.tag,
-    D       vod_pubdate: e.created_at,
+            vod_pubdate: e.created_at,
             vod_duration: e.time,
             ext: {
                 id: `${e.id}`,
