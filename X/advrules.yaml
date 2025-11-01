@@ -9,7 +9,7 @@ payload:
   - DOMAIN,avdbapi.com
   - DOMAIN,cdn.awsbucket.top
   - DOMAIN,u.029xxj.com
-  - DOMAIN,c0,jdbstatic.com
+  - DOMAIN,c0.jdbstatic.com
   - DOMAIN,client-rapi-missav.recombee.com
   - DOMAIN,umami.b1w1.cc
   - DOMAIN,javdb.com
