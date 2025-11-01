@@ -9,14 +9,16 @@ client-rapi-missav.recombee.com
 umami.b1w1.cc
 javdb.com
 h.yunpai8.com
+missav.ai
+missav.ws
 .img.11yun.xyz
 .11yun.live
 .mushroomtrack.com
 .mster.com
-.javdb.com/*
-.kanav.info/*
-.missav.ai/*
-.missav.ws/*
-.jable.tv/*
-.upload18.com/*
+.javdb.com
+.kanav.info
+.missav.ai
+.missav.ws
+.jable.tv
+.upload18.com
 
