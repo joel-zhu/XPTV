@@ -4,9 +4,12 @@ avdb.stream27.com
 avdbapi.com
 cdn.awsbucket.top
 u.029xxj.com
-c0,jdbstatic.com
+c0.jdbstatic.com
 client-rapi-missav.recombee.com
 umami.b1w1.cc
+javdb.com
+h.yunpai8.com
+.img.11yun.xyz
 .11yun.live
 .mushroomtrack.com
 .mster.com
@@ -16,4 +19,4 @@ umami.b1w1.cc
 .missav.ws/*
 .jable.tv/*
 .upload18.com/*
-img.11yun.xyz
+
