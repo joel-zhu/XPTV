@@ -2,7 +2,8 @@ payload:
   - DOMAIN-SUFFIX,11yun.live
   - DOMAIN-SUFFIX,mushroomtrack.com
   - DOMAIN-SUFFIX,mster.com
-  
+  - DOMAIN-SUFFIX,pvvstream.pro
+
   - DOMAIN,surrit.com
   - DOMAIN,video-6.ggjav.com
   - DOMAIN,avdb.stream27.com
@@ -20,7 +21,9 @@ payload:
   - DOMAIN,ie2.javmove.com
   - DOMAIN,fourhoi.com
   - DOMAIN,img.11yun.xyz
+  - DOMAIN,exporntoons.net
 
+  
   - DOMAIN-KEYWORD,javdb.com
   - DOMAIN-KEYWORD,kanav.info
   - DOMAIN-KEYWORD,missav
