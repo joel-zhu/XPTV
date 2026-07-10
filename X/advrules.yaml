@@ -4,7 +4,8 @@ payload:
   - DOMAIN-SUFFIX,mster.com
   - DOMAIN-SUFFIX,pvvstream.pro
   - DOMAIN-SUFFIX,dmm.co.jp
-  
+  - DOMAIN-SUFFIX,ggjav.com
+
   - DOMAIN,surrit.com
   - DOMAIN,video-6.ggjav.com
   - DOMAIN,avdb.stream27.com
@@ -32,7 +33,7 @@ payload:
   - DOMAIN,hohoj.tv
   - DOMAIN,cdn-1.ggjav.com
   - DOMAIN,video-1.ggjav.com
-
+  - DOMAIN,video-3.ggjav.com
   
   - DOMAIN-KEYWORD,javdb.com
   - DOMAIN-KEYWORD,kanav.info
