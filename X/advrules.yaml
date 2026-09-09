@@ -1,5 +1,6 @@
 payload:
   - DOMAIN-SUFFIX,11yun.live
+  - DOMAIN-SUFFIX,11yun.space
   - DOMAIN-SUFFIX,mushroomtrack.com
   - DOMAIN-SUFFIX,mster.com
   - DOMAIN-SUFFIX,pvvstream.pro
@@ -31,7 +32,6 @@ payload:
   - DOMAIN,infuseku.xyz
   - DOMAIN,kanav.ad
   - DOMAIN,hohoj.tv
-  - DOMAIN,cdn11.11yun.space
   - DOMAIN,upload18.org
   - DOMAIN,jdmnxezhzka.cfd
 
